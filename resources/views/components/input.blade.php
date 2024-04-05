@@ -1,8 +1,9 @@
 @props(['titulo', 'tipo', 'rex'])
 
+<div class="my-4">
+    <label for="">{{ $titulo }}</label>
+    <input class="rounded-full px-2" name={{ $rex }} type={{ $tipo }} class="border rounded-x1 px-4 py-1-5">
 
-<label for="">{{ $titulo }}</label>
-<input name={{ $rex }} type={{ $tipo }}>
-@error($rex)
-    <!--p>{{ $message }}</p-->
-@enderror()
+    @error($rex)
+        <p class="text-red-500">{{ $message }}</p>
+    @enderror()

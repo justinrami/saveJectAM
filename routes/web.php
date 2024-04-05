@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,19 +18,22 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/login', function() {
+Route::get('/login', function () {
     return view('login');
-});
+})->name('login');
 
 
 Route::post('/login', [UserController::class, 'login']);
 
-Route::get('/register', function (){
-        return view('signup');
+Route::get('/register', function () {
+    return view('signup');
 });
 
 Route::post('/register', [UserController::class, 'create']);
 
+Route::get('/home', function () {
+    return view('home');
 
+})->middleware(['auth']);
 
 

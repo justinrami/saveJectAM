@@ -16,7 +16,7 @@ class UserController extends controller
         ]);
 
         if (Auth::attempt($credentials)) {
-            return redirect('/')->with('success', 'Login successful');
+            return redirect('/home')->with('success', 'Login successful');
         }
 
         return back()->withErrors(['error' => 'Wrong credentials', 'password' => 'Wrong password']);

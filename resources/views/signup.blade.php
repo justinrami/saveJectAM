@@ -1,47 +1,32 @@
-<div>
-    <!-- Simplicity is the consequence of refined emotions. - Jean D'Alembert -->
-    <h1 class="text-3x1"> sign in <h1>
-            <form action="/register" method="POST">
-                @csrf
-                <div>
-                    <label for="">name</label>
-                    <input name="name" type="text">
-                    @error('name')
-                        <span> {{ $message }}</span>
-                    @enderror
-                </div>
+<x-layout>
+    <body class="bg-red-300 text-center">
 
+        <h1 class="text-4xl m-8 text-center font-black"> Sign up <h1>
 
-                <div>
+                <form class="grid place-content-center" action="/register" method="POST">
+                    @csrf
+                    <div class="m-8">
 
-                    <label for="">email</label>
-                    <input name="email" type="text">
-                    @error('email')
-                        <span> {{ $message }}</span>
-                    @enderror
-                </div>
+                    <div class="">
+                    <x-input titulo="Name" tipo="text" rex="name" />
+                    </div>
 
+                    <div class="m-8">
+                    <x-input titulo="Email" tipo="text" rex="email" />
+                    </div>
 
-                <div>
-                    <label for="">password</label>
-                    <input name="password" type="text">
-                    @error('password')
-                        <span> {{ $message }}</span>
-                    @enderror
-                </div>
+                    <div class="m-8">
+                    <x-input titulo="Password" tipo="Password" rex="password" />
+                    </div>
 
-                <div>
-                    <label for="">birthday</label>
-                    <input name="birthday" type="date">
-                    @error('birthday')
-                        <span> {{ $message }}</span>
-                    @enderror
+                    <div class="m-8">
+                    <x-input titulo="Birthday" tipo="Date" rex="birthday" />
+                    </div>
 
-                </div>
+                    <div>
+                    <button class=" font-black border border-neutral-800 bg-red-400 border border rounded-full px-10 hover:bg-red-600" type="submit ">Create account </button>
+                    </div>
+                </form>
 
-                <div>
-                    <button type="submit">create account</button>
-                </div>
-
-
-</div>
+    </body>
+</x-layout>
